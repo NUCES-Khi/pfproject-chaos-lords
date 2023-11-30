@@ -3,7 +3,7 @@
 
 # PROGRESS:
 ## COMPLETED:
-    1- Created A 8x8 Checkers Board, Piece are X and O
+    1- Created An 8x8 Checkers Board, Piece are X and O
     2- Player 1 and Player 2 play against each other
     3- Pieces are able to move correctly on the board
     4- A piece is not allowed to move onto incorrect spaces such as:
@@ -14,11 +14,11 @@
           e) Moving out of the board
           f) Moving to any random location on the board that is not 1 space diagonally near it
           g) Moving to a location where a dice is already present
-    5- A piece is able to cut the opposite players piece if it meets the conditions
-    6- The cut piece is removed from the board
-    7- Once a players all pieces are removed from the board then the other wins
-    8- Once a player reaches the other end of the board, its piece becomes the king
-    9- King is able to move in the opposite direction aswell
+    5- A piece is able to capture the opposite players piece if it meets the conditions
+    6- The captured piece is removed from the board
+    7- Once a players all pieces are captured from the board then the other player wins
+    8- Once a man reaches the other end of the board, its becomes king
+    9- King is able to move in the opposite direction as well
 ## CODING:
     1- Conditional Statements
     2- Function
