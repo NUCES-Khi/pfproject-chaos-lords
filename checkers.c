@@ -14,7 +14,51 @@ char board[SIZE][SIZE] =  {{'X', ' ', 'X', ' ','X', ' ', 'X', ' '},
                           {' ', 'O', ' ', 'O', ' ', 'O', ' ', 'O'},
                           {'O', ' ', 'O', ' ', 'O', ' ', 'O', ' '},
                           {' ', 'O', ' ', 'O', ' ', 'O', ' ', 'O'}};
+// To confirm is a piece is present on the location
+ int conferm1(char board[][SIZE],int r,int c,char ch){
+ 	//c stand for colume 
+ 	//r stand for row
+ 	if(board[r][c]==ch){
+ 		return 1;
+ 	}else
+ 	return 0;
+ }//end of confer1
 
+//Confirming if there is a space or not (when moving to a location where a piece is already present)
+ int conferm2(char board[][SIZE],int r,int c){
+ 	//c stand for colume 
+ 	//r stand for row
+ 	if(board[r][c]=='O'||board[r][c]=='X'){
+ 		return 0;
+ 	}else
+ 	return 1;
+ }//end of conferm2
+
+// this function moves a piece, and replaces space in a previous location the piece was at
+// it also is responsible for creating king piece
+void movepice(char board[][SIZE],int irow,int icol,int frow,int fcol,char a){
+        // checks if a piece should become king
+        // if piece reaches final row
+        // player 1 
+         if(a=='X'&&frow==7){
+            board[irow][icol]=' ';
+            char b='K';
+            board[frow][fcol]=b;
+         }else
+         // player 2 condition
+         if(a=='O'&&frow==0){
+            board[irow][icol]=' ';
+            board[frow][fcol]='Q';
+
+         }
+         // normal piece condition
+         else{
+         board[irow][icol]=' ';
+         board[frow][fcol]=a;
+
+         }
+	return;
+}
 //Display the board
 void display(char board[][SIZE]){
       printf("====================\n");
@@ -257,7 +301,40 @@ void scinput(char board[][SIZE]){
 
 	return;
 }//end of input of frist preson
+// this functon checks for base condition to stop game
+int check(char board[][SIZE]){
+	    bool flag=true;
+        // search for player 1 piece
+	    char searchChar='X';
+	    for(int i=0 ; i <SIZE;i++){
+            // strchr checks every column of a row without the need of another for loop
+             if(strchr(board[i],searchChar)!=NULL){
+                // if piece is not found then set to false and break
+                flag=false;   
+                break;
+	        }
+	    }
+	    
+	    if (flag==true){
+            printf("Player 2 Wins\n");
+	    	return 0;
+	    }
 
+         flag= true;
+         searchChar='O';//now search for secend member guti
+         for(int i = 0; i < SIZE; i++){
+             if(strchr(board[i], searchChar)!=NULL){
+                flag=false;   //agar 2nd person ki goti nhi milay gi to false kar day ga
+                break;
+	    }
+         }
+	    
+	    if (flag==true){
+            printf("Player 1 Wins\n");
+	    	return 0;
+	    }else
+      return 1;
+}
  int main(int argc, char const *argv[])
 {
 
