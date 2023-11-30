@@ -34,6 +34,33 @@ char board[SIZE][SIZE] =  {{'X', ' ', 'X', ' ','X', ' ', 'X', ' '},
  	return 1;
  }//end of conferm2
 
+// this function is responsible for removing a piece on the board
+ int chackforbak(char board[][SIZE],int row,int col,int curent_row,int curent_col){
+ 	     char a=board[curent_row][curent_col];
+ 	     char c;
+ 	     char b=' ';
+         // checks which piece is at current location
+ 	     if(a=='X'||a=='K'){
+ 	     	c='O';
+ 	     }else if(a=='O'||a=='Q'){
+            c='X';
+         }
+ 	      // if middle location empty, return 0
+ 	     if(board[row][col]==b){
+ 	     	return 0;
+ 	     }else
+         // if middle location has the piece present in current location return 0
+ 	      if(board[row][col]==a){
+ 	     	return 0;
+ 	     }else
+ 	     {
+            // replace the middle piece with space
+ 	     	if(board[row][col]==c){
+ 	     		board[row][col]=' ';
+ 	     	}
+ 	   }
+ 	return 1;
+ }
 // this function moves a piece, and replaces space in a previous location the piece was at
 // it also is responsible for creating king piece
 void movepice(char board[][SIZE],int irow,int icol,int frow,int fcol,char a){
@@ -83,6 +110,61 @@ void display(char board[][SIZE]){
        printf("Player 1 is: X\nPlayer 2 is: O\n");
       return;
 }//end of display
+
+// king function 
+int kingfun(char board[][SIZE],int rowintial,int colintial,int row,int col, int difrow,int difcol,int b,int c){
+        // b and c are mod of difrow and dif col
+        // if it can move 2 rows and 2 cols (simple words: will it move 2 spaces diagonally)
+        if(b==2&&c==2){
+            // basically checks if king is to move up or downwards
+           if (difrow > 0) {
+             switch (difcol) {
+                // when moving rightwards
+                case 2:
+                    // if chackforbak is not 1 then that means incorrect final location was entered
+                 if (chackforbak(board, row + 1,col +1, rowintial, colintial) != 1) {
+                    printf("INVALID LOCATION ENTERED: YOU CAN ONLY MOVE DIAGONALLY\n");
+                    return 1;
+                  }
+                  // when moving leftwards
+                case -2:
+                  if(chackforbak(board,row+1,col-1,rowintial,colintial) != 1){
+                    printf("INVALID LOCATION ENTERED: YOU CAN ONLY MOVE DIAGONALLY\n");
+                    return 1;
+                   }
+                  default:return 0;
+                }//end of switch
+            }//end of if (difrow > 0)
+            else
+                // same as above but for downwards
+            if(difrow<0){
+                switch(difcol){
+                   case -2:
+                     if(chackforbak(board,row-1,col-1,rowintial,colintial)!=1){
+                        printf("INVALID LOCATION ENTERED: YOU CAN ONLY MOVE DIAGONALLY\n");
+                        return 1;
+                     }
+                
+                   case 2: 
+                    if(chackforbak(board,row-1,col+1,rowintial,colintial)!=1){
+                        printf("INVALID LOCATION ENTERED: YOU CAN ONLY MOVE DIAGONALLY\n");
+                        return 1;
+                     }    
+                    default: return 0;
+                    }//end of switcah
+                  }//end of if (difcol > 0)
+        }//end of if b == 2 && a == 2//for king
+        else 
+        // if user wants to move 1 space only
+        if (b==1&&c==1){
+            // if piece already there or not
+           if (board[row][col]!=' '){
+              printf("INVALID LOCATION ENTERED: A PIECE IS ALREADY THERE\n");
+              return 1;
+           }else return 0;
+        }else
+            return 0;
+}//end of king function
 
 //this function can take input from 1st person
 void fsinput(char board[][SIZE]){
@@ -335,6 +417,29 @@ int check(char board[][SIZE]){
 	    }else
       return 1;
 }
+///play game in the function
+void playgame(char board[][SIZE],int i){
+	    int a=check(board);
+	   if(a==0){
+	   	   return;
+	   }
+       // if i is even then player 1 plays
+	   if(i%2==0){
+	   	printf("Turn of Player 1\n");
+	   	fsinput(board);//call the function  1st person input
+	   }
+       // else player 2 plays
+	   else{
+	   	  printf("Turn of Player 2\n");
+	   	 scinput(board);//call the function 2nd person input
+	   }
+	   system("cls");
+	   display(board);
+	   playgame(board,i-1);
+
+	   return;
+}
+
  int main(int argc, char const *argv[])
 {
 
