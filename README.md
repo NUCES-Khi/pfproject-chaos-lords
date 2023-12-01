@@ -9,6 +9,8 @@
 | Talha Rusman | 23K-0065 |
 | Muhammad John Raza | 23K-0069 |
 
+# DESCRIPTION
+A checkers project, in which a 8x8 board is displayed. This project consists of 2 players. Player 1s pieces are X and Player 2s pieces are O. Each player can only move their pieces diagonally by 1 space, however they are allowed to move their piece 2 spaces diagonally if they can capture a piece given the correct conditions are met. A player wins the moment he captures all the pieces of the opponent. 
 
 # PROGRESS:
 ## COMPLETED:
