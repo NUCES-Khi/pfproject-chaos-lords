@@ -10,7 +10,7 @@
           a) Moving Vertically
           b) Moving Horizontally
           c) Moving more than 2 spaces
-          d) Moving 2 spaces if it is not cutting a piece
+          d) Moving 2 spaces if it is not capturing a piece
           e) Moving out of the board
           f) Moving to any random location on the board that is not 1 space diagonally near it
           g) Moving to a location where a dice is already present
