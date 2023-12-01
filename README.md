@@ -5,7 +5,9 @@
 # Group
 | Members        | ID       |
 | ---------------|:--------:|
-| Muhammed Owais | 23K-0047 |
+| Muhammed Owais (Group Leader) | 23K-0047 |
+| Talha Rusman | 23K-0065 |
+| Muhammad John Raza | 23K-0069 |
 
 
 # PROGRESS:
