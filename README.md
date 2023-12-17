@@ -43,7 +43,7 @@ When a man reaches the other home rank of the checkerboard, it becomes a king. T
 
 A player wins if all their pieces are captured by the opponent.
 
-## Project Objectives
+### Project Objectives
 
 1. Two players can play against each other.
 2. If one player is present, the player plays against the computer.
