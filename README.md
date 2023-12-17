@@ -23,7 +23,7 @@
 The checkers are initially set up on the dark-colored squares, with each player having their pieces on the three rows closest to them.
 
 <div style="text-align:center">
-    <img src=![Picture1](https://github.com/NUCES-Khi/pfproject-chaos-lords/assets/83649329/a98c9ba2-cad9-494c-92ff-e79ca87057d1)>
+    <img src="(https://github.com/NUCES-Khi/pfproject-chaos-lords/assets/83649329/a98c9ba2-cad9-494c-92ff-e79ca87057d1)">
 
 </div>
 
