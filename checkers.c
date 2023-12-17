@@ -609,15 +609,59 @@ void playGame(char board[][SIZE], int i, int playerOrComputer)
     return;
 } // end of playGame
 
- int main(int argc, char const *argv[])
+int main(int argc, char const *argv[])
 {
+    char agree;
 
-	system("cls");
-	display(board);
-	int c,r;//c stand for calume and r stand for row
+    setColor(8);
+    printf("Objective: \n");
+    setColor(15);
+    printf("The objective of checkers is to capture all of the opponent's pieces or block them in such a way that they cannot make a move.\n");
+    setColor(8);
+    printf("Board Setup:\n");
+    setColor(15);
+    printf("1- The game is played on an 8x8 square board.\n2- Each player starts with 12 pieces, X marked as red and O marked as blue\n");
+    setColor(8);
+    printf("Movement:\n");
+    setColor(15);
+    printf("Players take turns moving their pieces diagonally.\n1- Normal pieces (not kings) can only move forward.\n2- Kings can move diagonally in any direction.\n");
+    setColor(8);
+    printf("Capture:\n");
+    setColor(15);
+    printf("If a player's piece is in a position to capture an opposing piece, it is optional for the opponent to make the capture. The opponent is not forced to capture if they have the option to do so.\n");
+    printf("1- Capturing is done by jumping over an opponent's piece, and the captured piece is removed from the board.\n2- If a piece reaches the last row on the opponent's side, it becomes a king.\n"); 
+    setColor(8);
+    printf("Kings:\n");
+    setColor(15);
+    printf("Kings have the ability to move diagonally in any direction.\n1- When capturing, kings can move both forward and backward over the opponent's pieces.\n");
+    setColor(8);
+    printf("Winning the Game:\n");
+    setColor(15);
+    printf("The game can be won by a player if the opponent loses all their pieces. A player wins when the opponent has no more pieces remaining on the board.\n");
+    setColor(8);
+    printf("Maximum of Two Jumps:\n");
+    setColor(15);
+    printf("A player is allowed to perform a maximum of two jumps with the a piece to capture another piece during their turn. Even if more than one opposing piece can be captured in a sequence, the player is limited to a maximum of two jumps per turn.\n");
+
+    printf("\nDo You Agree With The Rules? (Y/N): ");
+    scanf(" %c", &agree);
+
+    if (toupper(agree) == 'N')
+        return 0;
+
+    system("cls");
+	display(board); 
     
-    playgame(board,3000);
 
+    int choice;
+    printf("1: Player Vs Computer\n2: Player 1 Vs Player 2\nInput: ");
+    scanf("%d", &choice);
+
+    system("cls");
+    display(board);
+
+    playGame(board,3000,choice);
+    Sleep(5000);
      
 	return 0;
 }
