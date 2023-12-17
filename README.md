@@ -22,10 +22,7 @@
 
 The checkers are initially set up on the dark-colored squares, with each player having their pieces on the three rows closest to them.
 
-<div style="text-align:center">
-    <img src="(https://github.com/NUCES-Khi/pfproject-chaos-lords/assets/83649329/c4120b08-6be8-41e3-b0b0-35b7b81a99c7)" alt="Checkers Board Layout">
-</div>d
-
+![Checkers Board Layout](https://github.com/NUCES-Khi/pfproject-chaos-lords/assets/83649329/c4120b08-6be8-41e3-b0b0-35b7b81a99c7)
 
 
 ### Man: A piece on the board
