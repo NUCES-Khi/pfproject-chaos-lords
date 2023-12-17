@@ -9,29 +9,24 @@
 | Talha Rusman | 23K-0065 |
 | Muhammad John Raza | 23K-0069 |
 
-# DESCRIPTION
-A checkers project, in which a 8x8 board is displayed. This project consists of 2 players. Player 1s pieces are X and Player 2s pieces are O. Each player can only move their pieces diagonally by 1 space, however they are allowed to move their piece 2 spaces diagonally if they can capture a piece given the correct conditions are met. A player wins the moment he captures all the pieces of the opponent. 
-## Rules:
-    1- 
+# Project Proposal
 
-# PROGRESS:
-## COMPLETED:
-    1- Created An 8x8 Checkers Board, Piece are X and O
-    2- Player 1 and Player 2 play against each other
-    3- Pieces are able to move correctly on the board
-    4- A piece is not allowed to move onto incorrect spaces such as:
-          a) Moving Vertically
-          b) Moving Horizontally
-          c) Moving more than 2 spaces
-          d) Moving 2 spaces if it is not capturing a piece
-          e) Moving out of the board
-          f) Moving to any random location on the board that is not 1 space diagonally near it
-          g) Moving to a location where a dice is already present
-    5- A piece is able to capture the opposite players piece if it meets the conditions
-    6- The captured piece is removed from the board
-    7- Once a players all pieces are captured from the board then the other player wins
-    8- Once a man reaches the other end of the board, its becomes king
-    9- King is able to move in the opposite direction as well
+## Project Description
+- A checkerboard consisting of an 8x8 grid.
+- Each player has 12 pieces.
+- 24 Pieces in Total.
+- Every turn, a piece is allowed to move only one space.
+- Pieces move to their adjacent box diagonally.
+- If there is a free space adjacent to an opponent's piece, the opponent's piece can be captured.
+
+## Game Ending Conditions
+- A player has all their pieces captured by the opponent.
+
+## Project Objectives
+1. Two players max can play against each other.
+2. If one player is present, the player has to play against the computer.
+3. All the rules of checkers are printed before the game starts.
+
 ## CODING:
     1- Conditional Statements
     2- Function
