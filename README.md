@@ -107,3 +107,40 @@ Implementing a computer using the `playerInput` function proved challenging. The
 - The computer then randomly generates a value from 0 to 2, adding or subtracting it from the previous row and column values to get a final value.
 - Checks are again performed through the already defined functions to ensure it correctly selects that final location.
 - The challenge was that the computer could choose a piece it could not move. To address this, the computer is allowed to try 100 times and then recall the `computer` function to allow it to choose a new piece.
+
+
+## Major Logic
+
+### Player Input Logic
+
+The primary logic revolves around changing the contents of the array itself by updating it each time a new piece is moved. The initial step was to create a function responsible for `playerInput` and then moving the piece itself.
+
+1. **Player Movement:**
+   - When the player chooses a piece, the `confirm_piece` function checks whether the piece is present.
+   - The player inputs the location they want to move to, and checks are made to ensure the location is valid.
+   - The `confirm_space` function checks if the destination has a space.
+   - Further checks include verifying if the user input is diagonal and determining the number of spaces moved.
+   - The piece type (X or O) is considered to allow only valid movements (downwards for X, upwards for O).
+   - If the player moves two spaces, the `capture_piece` function checks if a piece can be captured.
+   - If any checks fail, a fail variable increases, and the user can choose a new piece.
+   - If the piece is a king, the `king` function is called to move it.
+
+2. **Recursion:**
+   - If a check fails, the user can choose a new piece. The function uses recursion for this purpose.
+
+### Computer Logic
+
+The major logic in the `computer` function involves generating random values for rows and columns (0 to 7).
+   - Checks ensure the computer selects valid values.
+   - The computer then generates a value from 0 to 2, adding or subtracting it from the previous row and column values.
+   - Checks are done again to ensure the computer selects a valid final location.
+   - The challenge was the computer choosing a piece it could not move, resolved by allowing 100 attempts before recalling the function.
+
+### Possible Improvements
+
+1. **Computer Function:**
+   - Enhance the computer function to make more strategic moves instead of random ones, capturing opportunities.
+   
+2. **Player Input Function:**
+   - Allow players to capture multiple pieces given certain conditions.
+   - Refactor the code to reduce overall length by implementing newer and more efficient logics.
