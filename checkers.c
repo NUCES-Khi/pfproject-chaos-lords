@@ -1,12 +1,15 @@
-#include<stdio.h>
-#include<string.h>
-#include<stdlib.h>
-#include<stdbool.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <ctype.h>
+#include <Windows.h>
 #define SIZE 8
 
 
 // Initializing board
-char board[SIZE][SIZE] =  {{'X', ' ', 'X', ' ','X', ' ', 'X', ' '},
+char board[SIZE][SIZE] =  {
+                          {'X', ' ', 'X', ' ', 'X', ' ', 'X', ' '},
                           {' ', 'X', ' ', 'X', ' ', 'X', ' ', 'X'},
                           {'X', ' ', 'X', ' ', 'X', ' ', 'X', ' '},
                           {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
@@ -14,78 +17,67 @@ char board[SIZE][SIZE] =  {{'X', ' ', 'X', ' ','X', ' ', 'X', ' '},
                           {' ', 'O', ' ', 'O', ' ', 'O', ' ', 'O'},
                           {'O', ' ', 'O', ' ', 'O', ' ', 'O', ' '},
                           {' ', 'O', ' ', 'O', ' ', 'O', ' ', 'O'}};
-// To confirm is a piece is present on the location
- int conferm1(char board[][SIZE],int r,int c,char ch){
- 	//c stand for colume 
- 	//r stand for row
- 	if(board[r][c]==ch){
- 		return 1;
- 	}else
- 	return 0;
- }//end of confer1
 
-//Confirming if there is a space or not (when moving to a location where a piece is already present)
- int conferm2(char board[][SIZE],int r,int c){
- 	//c stand for colume 
- 	//r stand for row
- 	if(board[r][c]=='O'||board[r][c]=='X'){
+// To confirm is a piece is present on the location
+int confirm_piece(char board[][SIZE],int current_row,int current_column,char ch)
+{
+ 	// c for col 
+ 	// r for row
+ 	if (board[current_row][current_column] == ch)
+ 		return 1;
+    else
+        return 0;
+} //end of confirm_piece
+
+// Confirming if there is a space or not (when moving to a location where a piece is already present)
+int confirm_space(char board[][SIZE],int final_row,int final_column) 
+{
+    // if there is space or not
+ 	if (board[final_row][final_column] == 'O'|| board[final_row][final_column] == 'X')
  		return 0;
- 	}else
- 	return 1;
- }//end of conferm2
+ 	else
+        return 1;
+} //end of confirm_space
 
 // this function is responsible for removing a piece on the board
- int chackforbak(char board[][SIZE],int row,int col,int curent_row,int curent_col){
- 	     char a=board[curent_row][curent_col];
- 	     char c;
- 	     char b=' ';
-         // checks which piece is at current location
- 	     if(a=='X'||a=='K'){
- 	     	c='O';
- 	     }else if(a=='O'||a=='Q'){
-            c='X';
-         }
- 	      // if middle location empty, return 0
- 	     if(board[row][col]==b){
- 	     	return 0;
- 	     }else
-         // if middle location has the piece present in current location return 0
- 	      if(board[row][col]==a){
- 	     	return 0;
- 	     }else
- 	     {
-            // replace the middle piece with space
- 	     	if(board[row][col]==c){
- 	     		board[row][col]=' ';
- 	     	}
- 	   }
- 	return 1;
- }
-// this function moves a piece, and replaces space in a previous location the piece was at
-// it also is responsible for creating king piece
-void movepice(char board[][SIZE],int irow,int icol,int frow,int fcol,char a){
-        // checks if a piece should become king
-        // if piece reaches final row
-        // player 1 
-         if(a=='X'&&frow==7){
-            board[irow][icol]=' ';
-            char b='K';
-            board[frow][fcol]=b;
-         }else
-         // player 2 condition
-         if(a=='O'&&frow==0){
-            board[irow][icol]=' ';
-            board[frow][fcol]='Q';
+int capture_piece(char board[][SIZE],int diag_row,int diag_col,int current_row,int current_col, bool isComputer)
+{
+    char current_piece = board[current_row][current_col];
+ 	char diag_piece;
 
-         }
-         // normal piece condition
-         else{
-         board[irow][icol]=' ';
-         board[frow][fcol]=a;
+    // checks which piece is at current location
+ 	if (current_piece == 'X' || current_piece == 'K') {
+        diag_piece = 'O';
+ 	} else if (current_piece == 'O' || current_piece == 'Q') {
+        diag_piece = 'X';
+    }
 
-         }
-	return;
-}
+ 	// if middle location empty, return 0
+ 	if (board[diag_row][diag_col] == ' ') {
+        if (isComputer == false)
+            printf("INVALID LOCATION ENTERED: YOU CAN ONLY MOVE ONE SPACE DIAGONALLY!\n");
+        return 0;
+ 	}
+    // if middle location has the players piece present in current location return 0
+    else if (board[diag_row][diag_col] == current_piece) {
+        if (isComputer == false)
+            printf("INVALID LOCATION ENTERED: YOUR PIECE IS ALREADY THERE DIAGONALLY\n");
+        return 0;
+    }
+    // replace the middle piece with space
+    else {
+        if (board[diag_row][diag_col] == diag_piece || 
+            (board[diag_row][diag_col] == 'K' && current_piece == 'O') ||
+            (board[diag_row][diag_col] == 'Q' && current_piece == 'X') ||
+            (board[diag_row][diag_col] == 'Q' && current_piece == 'K') ||
+            (board[diag_row][diag_col] == 'K' && current_piece == 'Q')) {
+ 	     	board[diag_row][diag_col] = ' ';
+            return 1;
+        }
+ 	}
+ 	
+} // end of capture_piece
+
 //Display the board
 void display(char board[][SIZE]){
       printf("====================\n");
@@ -110,6 +102,31 @@ void display(char board[][SIZE]){
        printf("Player 1 is: X\nPlayer 2 is: O\n");
       return;
 }//end of display
+
+// this function moves a piece, and replaces space in a previous location the piece was at
+// it also is responsible for creating king piece
+void move_piece(char board[][SIZE],int irow,int icol,int frow,int fcol,char a)
+{
+    // checks if a piece should become king
+    // if piece reaches final row
+    // player 1 
+    if (a == 'X' && frow == 7) {
+        board[irow][icol] = ' ';
+        char b = 'K';
+        board[frow][fcol] = b;
+    }
+    // player 2 condition
+    else if (a == 'O' && frow == 0) {
+        board[irow][icol] = ' ';
+        board[frow][fcol] = 'Q';
+    }
+    // normal piece condition
+    else {
+        board[irow][icol] = ' ';
+        board[frow][fcol] = a;
+    }
+    return;
+} // end of move_piece
 
 // king function 
 int kingfun(char board[][SIZE],int rowintial,int colintial,int row,int col, int difrow,int difcol,int b,int c){
@@ -383,62 +400,95 @@ void scinput(char board[][SIZE]){
 
 	return;
 }//end of input of frist preson
+
 // this functon checks for base condition to stop game
-int check(char board[][SIZE]){
-	    bool flag=true;
-        // search for player 1 piece
-	    char searchChar='X';
-	    for(int i=0 ; i <SIZE;i++){
-            // strchr checks every column of a row without the need of another for loop
-             if(strchr(board[i],searchChar)!=NULL){
-                // if piece is not found then set to false and break
-                flag=false;   
-                break;
-	        }
-	    }
-	    
-	    if (flag==true){
-            printf("Player 2 Wins\n");
-	    	return 0;
-	    }
+int check(char board[][SIZE], char searchChar, char kingOrQueen)
+{
+    bool flag = true;
+    // search for player piece
 
-         flag= true;
-         searchChar='O';//now search for secend member guti
-         for(int i = 0; i < SIZE; i++){
-             if(strchr(board[i], searchChar)!=NULL){
-                flag=false;   //agar 2nd person ki goti nhi milay gi to false kar day ga
-                break;
-	    }
-         }
-	    
-	    if (flag==true){
-            printf("Player 1 Wins\n");
-	    	return 0;
-	    }else
-      return 1;
-}
-///play game in the function
-void playgame(char board[][SIZE],int i){
-	    int a=check(board);
-	   if(a==0){
-	   	   return;
-	   }
-       // if i is even then player 1 plays
-	   if(i%2==0){
-	   	printf("Turn of Player 1\n");
-	   	fsinput(board);//call the function  1st person input
-	   }
-       // else player 2 plays
-	   else{
-	   	  printf("Turn of Player 2\n");
-	   	 scinput(board);//call the function 2nd person input
-	   }
-	   system("cls");
-	   display(board);
-	   playgame(board,i-1);
+    for (int i = 0; i < SIZE; i++) {
+        // strchr checks every column of a row without the need of another for loop
+        if (strchr(board[i], searchChar) != NULL || strchr(board[i], kingOrQueen) != NULL) {
+            // if a piece is found then set to false and break
+            flag = false;   
+            break;
+        }
+    }
+    
+    if (flag == true) {
+    	return 0;
+    }
+    return 1;
+} // end of check
 
-	   return;
-}
+
+// play game in the function
+void playGame(char board[][SIZE], int i, int playerOrComputer)
+{
+    char choice;
+    if (check(board, 'X', 'K') == 0) {
+        setColor(1);
+        printf("Player 2 Wins\n");
+   	    return;
+    }
+    if (check(board, 'O', 'Q') == 0)
+    {
+        setColor(4);
+        printf("Player 1 Wins\n");
+        return;
+    }
+
+    if (i == 3000)
+    {
+        int newResume;
+        printf("Do You Want To Start A New Game or Resume A Previous One:\n1- New Game\n2- Resume\nInput: ");
+        scanf("%d", &newResume);
+        pauseOrResume(board, newResume);
+    }
+
+    // if i is even then player 1 plays
+    if (i % 2 == 0) {
+        // Call the function for player 1 input
+        playerInput(board, 'X', true);
+    }
+    // else player 2 plays
+    else if (playerOrComputer == 1){
+        computer(board, 'O');
+    }
+    else {
+        playerInput(board, 'O', true);
+    }
+
+    if (check(board, 'X', 'K') == 0) {
+        setColor(1);
+        printf("Player 2 Wins\n");
+        return;
+    }
+    if (check(board, 'O', 'Q') == 0)
+    {
+        setColor(4);
+        printf("Player 1 Wins\n");
+        return;
+    }
+
+    if (i % 2 != 0) {
+        // cls and display again so that player 2 updated array is shown to user
+        system("cls");
+        display(board);
+        printf("Do You Want To Pause?(Y/N): ");
+        scanf(" %c", &choice);
+        if (toupper(choice) == 'Y')
+        {
+            pauseOrResume(board, 3);
+            return;
+        }
+    }
+
+    playGame(board,i-1,playerOrComputer);
+
+    return;
+} // end of playGame
 
  int main(int argc, char const *argv[])
 {
