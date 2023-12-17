@@ -11,41 +11,40 @@
 
 ## Project Proposal
 
-### Project Description:
+### Project Description
 
 1. A checker board consisting of an 8x8 grid.
-2. Each player has 12 pieces.
-3. Total of 24 pieces.
-4. Every turn, a piece is allowed to move only one space.
-5. Pieces move to their adjacent box diagonally.
-6. If there is a free space adjacent to an opponent's piece, the opponent's piece can be captured.
+2. Each player has 12 pieces, totaling 24 pieces.
+3. Every turn, a piece can move only one space diagonally.
+4. Capturing is allowed if there is a free space adjacent to an opponent's piece.
 
-### Checkers Board Layout:
+### Checkers Board Layout
 
 The checkers are initially set up on the dark-colored squares, with each player having their pieces on the three rows closest to them.
 
-![Checkers Board Layout](path/to/checkers_board_layout_image.png)
+![Checkers Board Layout]![Picture1](https://github.com/NUCES-Khi/pfproject-chaos-lords/assets/83649329/c4120b08-6be8-41e3-b0b0-35b7b81a99c7)
 
-### Man; A piece on a board:
 
-A piece that is only allowed to move forwards, cannot move backward. The visual representation below illustrates how a man is moved.
+### Man: A piece on the board
+
+A piece that can only move forward. It cannot move backward. Here's a visual representation of how a man is moved:
 
 ![Man - Piece Movement](path/to/man_piece_movement_image.png)
 
-### King; A piece on a board:
+### King: A piece on the board
 
-When a man reaches the other home rank of the checkerboard, it becomes a king. This allows the piece to move both forward and backward. The visual representation below illustrates how a king moves in a checkerboard.
+When a man reaches the other home rank of the checkerboard, it becomes a king. This allows the piece to move both forward and backward. Here's a visual representation of how a king moves in a checkerboard:
 
 ![King - Piece Movement](path/to/king_piece_movement_image.png)
 
-### Game Ending Conditions:
+### Game Ending Conditions
 
-1. A player has all their pieces captured by the opponent.
+A player wins if all their pieces are captured by the opponent.
 
-## Project Objectives:
+## Project Objectives
 
-1. Two players max can play against each other.
-2. If one player is there, then the player has to play against the computer.
+1. Two players can play against each other.
+2. If one player is present, the player plays against the computer.
 3. All the rules of checkers are printed before the game starts.
 
 
