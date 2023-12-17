@@ -105,5 +105,5 @@ Implementing a computer using the `playerInput` function proved challenging. The
 - In this function, the computer randomly generates values for rows and columns (0 to 7).
 - Checks are performed through the already defined functions to ensure that the computer correctly selects the values.
 - The computer then randomly generates a value from 0 to 2, adding or subtracting it from the previous row and column values to get a final value.
-- Checks are again performe
-  
+- Checks are again performed through the already defined functions to ensure it correctly selects that final location.
+- The challenge was that the computer could choose a piece it could not move. To address this, the computer is allowed to try 100 times and then recall the `computer` function to allow it to choose a new piece.
