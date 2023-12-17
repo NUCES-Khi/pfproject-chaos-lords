@@ -1,4 +1,4 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/j0WbCUcA)
+![Picture2](https://github.com/NUCES-Khi/pfproject-chaos-lords/assets/83649329/c5ac88c0-9980-4244-9f7b-1135b357a628)[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/j0WbCUcA)
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=13059236&assignment_repo_type=AssignmentRepo)
 # PROJECT CHECKERS
 
@@ -22,20 +22,22 @@
 
 The checkers are initially set up on the dark-colored squares, with each player having their pieces on the three rows closest to them.
 
-![Checkers Board Layout]![Picture1](https://github.com/NUCES-Khi/pfproject-chaos-lords/assets/83649329/c4120b08-6be8-41e3-b0b0-35b7b81a99c7)
+![Checkers Board Layout](https://github.com/NUCES-Khi/pfproject-chaos-lords/assets/83649329/c4120b08-6be8-41e3-b0b0-35b7b81a99c7)
 
 
 ### Man: A piece on the board
 
 A piece that can only move forward. It cannot move backward. Here's a visual representation of how a man is moved:
 
-![Man - Piece Movement](path/to/man_piece_movement_image.png)
+![Man - Piece Movement](https://github.com/NUCES-Khi/pfproject-chaos-lords/assets/83649329/11b7c1b4-7021-42a2-b25f-4394cfdf6a85)
+
 
 ### King: A piece on the board
 
 When a man reaches the other home rank of the checkerboard, it becomes a king. This allows the piece to move both forward and backward. Here's a visual representation of how a king moves in a checkerboard:
 
-![King - Piece Movement](path/to/king_piece_movement_image.png)
+![King - Piece Movement](https://github.com/NUCES-Khi/pfproject-chaos-lords/assets/83649329/d20a2176-e7ff-457a-9dd5-46e61e83d6c0)
+
 
 ### Game Ending Conditions
 
