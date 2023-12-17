@@ -50,12 +50,36 @@ A player wins if all their pieces are captured by the opponent.
 3. All the rules of checkers are printed before the game starts.
 
 
-## CODING:
-    1- Conditional Statements
-    2- Function
-    3- Recursions 
-    4- 2D Arrays
-    5- Loops 
-    6- Boolean
+## Data Structures
+
+1. **Character Array:**
+   - Used to store the "O" and "X" of the checkers board, declared as an 8x8 2D array.
+
+2. **Functions:**
+   - Utilizes void and integer-returning functions that perform various tasks on a checkers board. Functions are designed for checking player moves, moving pieces, handling king pieces, displaying the checkers board, and creating the AI that plays against the player.
+
+3. **Boolean Data Type:**
+   - Controls the printing for errors when the computer is playing. Also used to check if the game has been won by a player or not.
+
+4. **Conditional Statements:**
+   - Used to validate different moves made on the board by the player and the AI, preventing incorrect moves. Also employed in the main function and the playGame function to determine whether it's player 1 vs player 2 or player vs computer. Switch statements are used to determine if the player wants to move left or right on the board.
+
+5. **Recursions:**
+   - The playGame function uses recursion to keep the checkers game running until a winning condition occurs. Recursion is also employed in the playerInput function to allow the player to choose a different piece if the current piece cannot be moved.
+
+6. **Loops:**
+   - While loop used in the playerInput function to take input until correct input is entered. A for loop is used to display the contents of the array as a checkers board. A for loop is also used for filing, either to fill the array with contents or fill the file with contents of the array.
+
+7. **Filing:**
+   - A filing function has been created to allow a user to start a new game or pause the current game by filing the file with the contents of the array. Resuming allows the user to resume a previously saved game by filing the current array with the contents of the file. If a user resumes and no previous file is available, it starts a new game.
+
+8. **Libraries:**
+   - `stdio.h`: Used for basic functions in C.
+   - `string.h`: Used for `strchr` function.
+   - `stdbool.h`: Used for the boolean data type.
+   - `ctype.h`: Used for `isupper` function.
+   - `Windows.h`: Used for coloring.
+   - `stdlib.h`: Used for `system("cls")`.
+
     
   
