@@ -49,6 +49,12 @@ A player wins if all their pieces are captured by the opponent.
 2. If one player is present, the player plays against the computer.
 3. All the rules of checkers are printed before the game starts.
 
+## Video for Player Vs Computer
+
+
+https://github.com/NUCES-Khi/pfproject-chaos-lords/assets/83649329/19233878-7635-4422-a356-81b5afdd6244
+
+
 
 ## Data Structures
 
