@@ -82,4 +82,28 @@ A player wins if all their pieces are captured by the opponent.
    - `stdlib.h`: Used for `system("cls")`.
 
     
+## Major Problems and Solutions
+
+### Problem 1: Determining how to correctly move both players' pieces
+
+**Solution:**
+Created different functions that separately check whether the move a player is making is correct or not.
+- The first function, `confirm_piece`, checks if the chosen piece is the correct piece of the player.
+- The next function, `confirm_space`, checks if the place the user is moving to has a space or not.
+- The following function, `capture_piece`, checks if a piece can be captured. If it can, it replaces the piece to be captured with a space.
+- The function `move_piece` is responsible for moving the piece after all the checks have been done. This function simply moves the piece from one array location to another, replacing the previous location with a space. It can also create a king piece if certain conditions are met.
+
+### Problem 2: Determining how to have a king piece and how to move it
+
+**Solution:**
+Created a `king` function that deals with the king piece exclusively. If a king piece is encountered, this function is called. It behaves the same way as the `playerInput` function but also allows the piece to move both up and down. This allows us to move a king piece very differently than a normal piece by putting it in a separate function. Implementation became straightforward when we realized that it works the same as a normal piece but has the added ability to move up and down.
+
+### Problem 3: Computer Vs Player
+
+**Solution:**
+Implementing a computer using the `playerInput` function proved challenging. Therefore, a new function, `computer`, was created.
+- In this function, the computer randomly generates values for rows and columns (0 to 7).
+- Checks are performed through the already defined functions to ensure that the computer correctly selects the values.
+- The computer then randomly generates a value from 0 to 2, adding or subtracting it from the previous row and column values to get a final value.
+- Checks are again performe
   
