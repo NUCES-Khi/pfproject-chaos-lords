@@ -579,6 +579,9 @@ void playGame(char board[][SIZE], int i, int playerOrComputer)
         playerInput(board, 'O', true);
     }
 
+    system("cls");
+    display(board);
+	
     if (check(board, 'X', 'K') == 0) {
         setColor(1);
         printf("Player 2 Wins\n");
