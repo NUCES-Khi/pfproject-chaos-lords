@@ -50,10 +50,10 @@ A player wins if all their pieces are captured by the opponent.
 3. All the rules of checkers are printed before the game starts.
 
 ## Video for Player Vs Computer
-https://github.com/NUCES-Khi/pfproject-chaos-lords/assets/83649329/19233878-7635-4422-a356-81b5afdd6244
+https://github.com/NUCES-Khi/pfproject-chaos-lords/assets/83649329/8e1b0799-28a4-47d7-b0c4-896f7d46efe0
 
 ## Video for Player 1 Vs Player 2
-VIDEO TOO BIG THUS UPLOADED
+VIDEO SIZE TOO BIG
 
 ## Data Structures
 
