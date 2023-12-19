@@ -17,34 +17,7 @@ char board[SIZE][SIZE] =  {
                           {' ', 'O', ' ', 'O', ' ', 'O', ' ', 'O'},
                           {'O', ' ', 'O', ' ', 'O', ' ', 'O', ' '},
                           {' ', 'O', ' ', 'O', ' ', 'O', ' ', 'O'}};
-// for saving, resume game state
-void pauseOrResume(char board[][SIZE], int game)
-{
-    // 1 means newgame, 3 means pause
-    if (game == 1 || game == 3)
-    {
-        FILE *ptr = fopen("Data.txt", "w");
-        for (int i = 0; i < SIZE; ++i)
-        {
-            fputs(board[i], ptr);
-        }
-    }
-    else if (game == 2)
-    {
-        FILE *ptr = fopen("Data.txt", "r");
-        // if file doesnt exist then dont write anything to array, because array would become empty
-        if (ptr != NULL) {
-            for (int i = 0; i < SIZE; ++i)
-            {
-                for (int j = 0; j < SIZE; ++j)
-                {
-                    board[i][j] = fgetc(ptr);
-                }
-            }
-        }
-    }
-    
-}
+
 
 // To confirm is a piece is present on the location
 int confirm_piece(char board[][SIZE],int current_row,int current_column,char ch)
