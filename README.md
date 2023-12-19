@@ -14,6 +14,10 @@
 
 https://github.com/NUCES-Khi/pfproject-chaos-lords/assets/83649329/87df9bc3-333c-45a7-911e-e1c9e101a11b
 
+## Presentation
+
+https://github.com/NUCES-Khi/pfproject-chaos-lords/assets/83649329/bf87e69f-0701-4580-a95c-8d731a423206
+
 ## Project Proposal
 
 ### Project Description
